@@ -20,7 +20,6 @@
     "eslint-comments",
     "import",
     "jsx-a11y",
-    "no-use-extend-native",
     "optimize-regex",
     "prettier",
     "promise",
@@ -30,5 +29,8 @@
     "sonarjs",
     "storybook",
     "unused-imports"
-  ]
+  ],
+  "rules": {
+    "react/prop-types": "off"
+  }
 }
