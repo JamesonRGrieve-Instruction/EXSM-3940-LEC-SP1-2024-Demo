@@ -16,21 +16,36 @@
     "plugin:sonarjs/recommended",
     "plugin:storybook/recommended"
   ],
-  "plugins": [
-    "eslint-comments",
-    "import",
-    "jsx-a11y",
-    "optimize-regex",
-    "prettier",
-    "promise",
-    "react-hooks",
-    "react",
-    "security",
-    "sonarjs",
-    "storybook",
-    "unused-imports"
-  ],
+  "plugins": ["eslint-comments", "import", "jsx-a11y", "optimize-regex", "prettier", "promise", "react-hooks", "react", "security", "sonarjs", "storybook", "unused-imports"],
   "rules": {
-    "react/prop-types": "off"
+    "react/prop-types": "off",
+    "prettier/prettier": [
+      "warn",
+      {
+        "printWidth": 180,
+        "tabWidth": 2,
+        "useTabs": false,
+        "semi": true,
+        "singleQuote": true,
+        "quoteProps": "as-needed",
+        "jsxSingleQuote": true,
+        "trailingComma": "all",
+        "bracketSpacing": true,
+        "jsxBracketSameLine": false,
+        "arrowParens": "always",
+        "singleAttributePerLine": false,
+        "endOfLine": "lf"
+      }
+    ],
+    "eqeqeq": ["warn", "always"],
+    "import/no-unassigned-import": [
+      "warn",
+      {
+        "allow": ["**/*.css"]
+      }
+    ],
+    "import/first": "warn", // Ensure all imports appear before other statements.
+    "import/no-duplicates": "warn", // Report repeated import of the same module in multiple places.
+    "import/order": "warn" // Enforce a convention in the order of import statements.
   }
 }
