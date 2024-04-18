@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect } from 'react';
-import styles from './page.module.css';
 export default function Home() {
   // This log will run on both server and client, because it is in the body of a client component.
   console.log('Loaded Home!');
@@ -8,9 +7,5 @@ export default function Home() {
     // This log will run only on the client, because it is in a client-side hook.
     console.log('Mounted Home!');
   }, []);
-  return (
-    <main className={styles.main}>
-      <h1>Home Page</h1>
-    </main>
-  );
+  return <h1>Home Page</h1>;
 }
