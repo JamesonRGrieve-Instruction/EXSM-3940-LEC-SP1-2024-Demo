@@ -3,6 +3,7 @@ import './globals.css';
 
 import React from 'react';
 import Navigation from '../components/Navigation';
+import ThemeWrapper from './ThemeWrapper';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -14,10 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang='en'>
       <body className={inter.className}>
-        <header>
-          <Navigation />
-        </header>
-        <div className='container'>{children}</div>
+        <ThemeWrapper>
+          <header>
+            <Navigation />
+          </header>
+          <div>{children}</div>
+        </ThemeWrapper>
       </body>
     </html>
   );

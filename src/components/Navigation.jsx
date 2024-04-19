@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Navigation.module.css';
 // Don't mix this up with the MUI Link unless you inject the NextJS Link functionality therein via theming, etc.
-import Link from 'next/link';
+import { Link } from '@mui/material';
 const Navigation = () => {
   return (
     <nav className={styles.navigation}>
