@@ -1,4 +1,5 @@
 'use client';
+import { Typography } from '@mui/material';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect } from 'react';
 export default function SearchParamRenderer() {
@@ -10,5 +11,5 @@ export default function SearchParamRenderer() {
     // This log will run only on the client, because it is in a client-side hook.
     console.log('Mounted Home!');
   }, []);
-  return <p>{searchParams.get('name')}</p>;
+  return <Typography variant='body1'>{searchParams.get('name')}</Typography>;
 }

@@ -18,6 +18,11 @@ export default function ThemeWrapper({ children }) {
             },
           },
         },
+        palette: {
+          primary: {
+            main: '#ff0000',
+          },
+        },
       })}
     >
       <CssBaseline />

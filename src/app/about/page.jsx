@@ -1,4 +1,5 @@
 'use client';
+import { Typography, Box, TextField, Button } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 export default function Home({ searchParams }) {
@@ -7,17 +8,23 @@ export default function Home({ searchParams }) {
   return (
     <>
       {/* <h1 className={`${styles.about_heading} ${aboutStyles.about_headings}`}>About Page</h1> */}
-      <h1>About Page</h1>
-      <form
+      <Typography variant='h1' textAlign='center'>
+        About Page
+      </Typography>
+      <Box
+        padding='2rem'
+        component='form'
         onSubmit={(event) => {
           event.preventDefault();
           const name = event.target.elements.name.value.trim();
           router.push(`/?name=${name}`);
         }}
       >
-        <input type='text' name='name' defaultValue='' />
-        <button type='submit'>Go Home</button>
-      </form>
+        <TextField fullWidth name='name' defaultValue='' />
+        <Button fullWidth variant='contained' type='submit'>
+          Go Home
+        </Button>
+      </Box>
     </>
   );
 }
