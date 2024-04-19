@@ -5,10 +5,14 @@ export default function Home() {
   console.log('Loaded Home!');
   return (
     <>
-      <h1>Home Page</h1>
-      <Suspense>
-        <SearchParamRenderer />
-      </Suspense>
+      <main>
+        <h1>Home Page</h1>
+      </main>
+      <aside>
+        <Suspense>
+          <SearchParamRenderer />
+        </Suspense>
+      </aside>
     </>
   );
 }

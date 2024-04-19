@@ -1,8 +1,8 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-// Don't mix this up with the MUI Link unless you inject the NextJS Link functionality therein via theming, etc.
-import Link from 'next/link';
+
 import React from 'react';
+import Navigation from '../components/Navigation';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -15,21 +15,9 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <header>
-          <nav>
-            <ul>
-              <li>
-                <Link href='/'>Home</Link>
-              </li>
-              <li>
-                <Link href='/about'>About</Link>
-              </li>
-              <li>
-                <Link href='/about/me'>About Me</Link>
-              </li>
-            </ul>
-          </nav>
+          <Navigation />
         </header>
-        <main>{children}</main>
+        <div className='container'>{children}</div>
       </body>
     </html>
   );
