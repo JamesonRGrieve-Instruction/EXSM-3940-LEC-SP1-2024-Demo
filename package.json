@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build-mem": "next build --experimental-debug-memory-usage",
     "start": "next start",
     "lint": "next lint",
     "lint-fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
@@ -26,7 +27,7 @@
     "axios": "^1.6.8",
     "cookies-next": "^4.1.1",
     "jrgcomponents": "^0.0.103",
-    "next": "^14.1.4",
+    "next": "^14.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
