@@ -4,8 +4,9 @@ import { Box, Typography } from '@mui/material';
 import { Josefin_Sans } from 'next/font/google';
 
 const josefinSans = Josefin_Sans({
-  weight: ['100', '600', '700'],
+  weight: ['100', '200', '300', '600', '700'],
   subsets: ['latin'],
+  style: ['normal', 'italic'],
 });
 
 export default function Home() {
@@ -14,7 +15,7 @@ export default function Home() {
   return (
     <>
       <Box component='main'>
-        <Typography variant='h1' fontWeight='600' className={josefinSans.className}>
+        <Typography variant='h1' fontWeight='600' fontStyle='italic' className={josefinSans.className}>
           Home
         </Typography>
         <Typography variant='h1' className={josefinSans.className}>
