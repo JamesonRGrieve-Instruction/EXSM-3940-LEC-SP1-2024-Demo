@@ -24,7 +24,20 @@ export default function InputToQuery() {
           }
         }}
       >
-        Submit
+        Submit - First Last
+      </button>
+      <button
+        type='submit'
+        onClick={(event) => {
+          event.preventDefault();
+          if (!firstName.trim() || !lastName.trim()) {
+            setError('Please fill out both fields.');
+          } else {
+            router.push(`/output?display_mode=lastFirst&first_name=${firstName.trim()}&last_name=${lastName.trim()}`);
+          }
+        }}
+      >
+        Submit - Last, First
       </button>
     </form>
   );

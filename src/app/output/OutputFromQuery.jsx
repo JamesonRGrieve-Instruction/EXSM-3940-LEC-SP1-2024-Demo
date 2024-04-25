@@ -4,12 +4,12 @@ import React from 'react';
 
 export default function OutputFromQuery() {
   const searchParams = useSearchParams();
+  const displayMode = searchParams.get('display_mode');
   const firstName = searchParams.get('first_name');
   const lastName = searchParams.get('last_name');
   return (
     <>
-      <p>First Name: {firstName}</p>
-      <p>Last Name: {lastName}</p>
+      <p>{displayMode === 'lastFirst' ? `${lastName}, ${firstName}` : `${firstName} ${lastName}`}</p>
     </>
   );
 }
