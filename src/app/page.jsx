@@ -3,12 +3,8 @@ import SearchParamRenderer from './SearchParamRender';
 import { Box, Typography } from '@mui/material';
 import { Josefin_Sans } from 'next/font/google';
 
-const josefinSans700 = Josefin_Sans({
-  weight: '700',
-  subsets: ['latin'],
-});
-const josefinSans100 = Josefin_Sans({
-  weight: '100',
+const josefinSans = Josefin_Sans({
+  weight: ['100', '600', '700'],
   subsets: ['latin'],
 });
 
@@ -18,10 +14,10 @@ export default function Home() {
   return (
     <>
       <Box component='main'>
-        <Typography variant='h1' className={josefinSans700.className}>
+        <Typography variant='h1' fontWeight='600' className={josefinSans.className}>
           Home
         </Typography>
-        <Typography variant='h1' className={josefinSans100.className}>
+        <Typography variant='h1' className={josefinSans.className}>
           Page
         </Typography>
       </Box>
