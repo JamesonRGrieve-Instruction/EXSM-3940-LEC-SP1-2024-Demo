@@ -2,6 +2,7 @@
 import { Typography, Box, TextField, Button } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import React from 'react';
+
 export default function Home({ searchParams }) {
   console.log('On Page: ', searchParams);
   const router = useRouter();

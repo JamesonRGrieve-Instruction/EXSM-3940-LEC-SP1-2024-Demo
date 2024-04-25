@@ -2,6 +2,9 @@ import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import ducksImage from '../../../public/img/ducks.jpeg';
 import React from 'react';
+export const metadata = {
+  title: 'About us page.',
+};
 export default function Home({ params }) {
   console.log('On Page: ', params);
   return (
