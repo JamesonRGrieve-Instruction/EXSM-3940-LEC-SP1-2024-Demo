@@ -4,6 +4,17 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: true,
 });
 
-const nextConfig = {};
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+        port: '',
+        pathname: '/photo/**',
+      },
+    ],
+  },
+};
 
 export default process.env.NEXT_ANALYZE === 'true' ? withBundleAnalyzer(nextConfig) : nextConfig;
