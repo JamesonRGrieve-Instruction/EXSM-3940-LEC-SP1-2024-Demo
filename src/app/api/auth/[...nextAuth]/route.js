@@ -1,6 +1,6 @@
 import NextAuth from 'next-auth';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
-import GitHubProvider from 'next-auth/providers/github';
+import CredentialsProvider from 'next-auth/providers/credentials';
 import prisma from '../../../../lib/prisma';
 
 export default function handler(req, res) {
@@ -9,9 +9,16 @@ export default function handler(req, res) {
 
 const options = {
   providers: [
-    GitHubProvider({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+    CredentialsProvider({
+      name: 'Credentials',
+      credentials: {
+        username: { label: 'Username', type: 'text' },
+        password: { label: 'Password', type: 'password' },
+      },
+      async authorize(credentials) {
+        console.log(credentials);
+        return { id: 1, name: 'John', email: 'john@example.com' };
+      },
     }),
   ],
   adapter: PrismaAdapter(prisma),
