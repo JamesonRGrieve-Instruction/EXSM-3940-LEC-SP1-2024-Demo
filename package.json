@@ -13,7 +13,9 @@
     "fix": "prettier --write . && eslint . --ext .js,.jsx,.ts,.tsx --fix",
     "storybook": "storybook dev -p 3001",
     "storybook-build": "storybook build",
-    "storybook-deploy": "storybook build && gh-pages -d storybook-static"
+    "storybook-deploy": "storybook build && gh-pages -d storybook-static",
+    "prisma-generate": "prisma generate --schema=./src/schema.prisma",
+    "prisma-migrate": "prisma migrate dev --schema=./src/schema.prisma"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",

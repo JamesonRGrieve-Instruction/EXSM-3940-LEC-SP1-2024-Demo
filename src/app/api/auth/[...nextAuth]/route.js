@@ -3,10 +3,6 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import prisma from '../../../../lib/prisma';
 
-export default function handler(req, res) {
-  return NextAuth(req, res, options);
-}
-
 const options = {
   providers: [
     CredentialsProvider({
@@ -24,3 +20,11 @@ const options = {
   adapter: PrismaAdapter(prisma),
   secret: process.env.SECRET,
 };
+
+export async function GET(req, res) {
+  return await NextAuth(req, res, options);
+}
+
+export async function POST(req, res) {
+  return await NextAuth(req, res, options);
+}

@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import Header from './Header';
 
 const Layout = (props) => (

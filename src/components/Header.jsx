@@ -1,20 +1,41 @@
-import React from 'react';
+'use client';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import { signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { signOut, getSession } from 'next-auth/react';
 
 const Header = () => {
   const router = useRouter();
   const isActive = (pathname) => router.pathname === pathname;
+  const [sessionInfo, setSessionInfo] = useState({ session: null, status: null });
 
-  const { data: session, status } = useSession();
+  useEffect(() => {
+    let isMounted = true; // add this line
+
+    getSession()
+      .then((sessionResult) => {
+        console.log(sessionResult);
+        if (isMounted) {
+          // check if component is still mounted
+          setSessionInfo({ session: sessionResult.data, status: sessionResult.status });
+        }
+        return true;
+      })
+      .catch((error) => {
+        console.error('An error occurred fetching session', error);
+      });
+
+    return () => {
+      isMounted = false; // clean up on unmount
+    };
+  }, []);
 
   let left = (
     <div className='left'>
       <Link href='/'>
-        <a className='bold' data-active={isActive('/')}>
+        <span className='bold' data-active={isActive('/')}>
           Feed
-        </a>
+        </span>
       </Link>
     </div>
   );
@@ -25,9 +46,9 @@ const Header = () => {
     left = (
       <div className='left'>
         <Link href='/'>
-          <a className='bold' data-active={isActive('/')}>
+          <span className='bold' data-active={isActive('/')}>
             Feed
-          </a>
+          </span>
         </Link>
       </div>
     );
@@ -38,41 +59,39 @@ const Header = () => {
     );
   }
 
-  if (!session) {
+  if (!sessionInfo.session) {
     right = (
       <div className='right'>
         <Link href='/api/auth/signin'>
-          <a data-active={isActive('/signup')}>Log in</a>
+          <span data-active={isActive('/signup')}>Log in</span>
         </Link>
       </div>
     );
-  }
-
-  if (session) {
+  } else {
     left = (
       <div className='left'>
         <Link href='/'>
-          <a className='bold' data-active={isActive('/')}>
+          <span className='bold' data-active={isActive('/')}>
             Feed
-          </a>
+          </span>
         </Link>
         <Link href='/drafts'>
-          <a data-active={isActive('/drafts')}>My drafts</a>
+          <span data-active={isActive('/drafts')}>My drafts</span>
         </Link>
       </div>
     );
     right = (
       <div className='right'>
         <p>
-          {session.user.name} ({session.user.email})
+          {sessionInfo.session.user.name} ({sessionInfo.session.user.email})
         </p>
         <Link href='/create'>
           <button>
-            <a>New post</a>
+            <span>New post</span>
           </button>
         </Link>
         <button onClick={() => signOut()}>
-          <a>Log out</a>
+          <span>Log out</span>
         </button>
       </div>
     );

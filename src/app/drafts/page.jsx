@@ -1,11 +1,11 @@
 import React from 'react';
 import Layout from '../../components/Layout';
 import Post from '../../components/Post';
-import { useSession, getSession } from 'next-auth/react';
+import { getServerSession } from 'next-auth/react';
 import prisma from '../../lib/prisma';
 
 export const getServerSideProps = async ({ req, res }) => {
-  const session = await getSession({ req });
+  const session = await getServerSession({ req });
   if (!session) {
     res.statusCode = 403;
     return { props: { drafts: [] } };
@@ -28,7 +28,7 @@ export const getServerSideProps = async ({ req, res }) => {
 };
 
 const Drafts = (props) => {
-  const { data: session } = useSession();
+  const { data: session } = getServerSession();
 
   if (!session) {
     return (
