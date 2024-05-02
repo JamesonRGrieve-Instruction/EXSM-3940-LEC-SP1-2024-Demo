@@ -24,12 +24,12 @@ export default function Home() {
   console.log('Loaded Home!');
   return (
     <>
-      <Box component='main'>
-        <Typography variant='h1' fontWeight='600' fontStyle='italic' className={fonts.josefinSans.className}>
+      <Box component='main' className={fonts.ebGaramond.className}>
+        <Typography variant='h1' fontWeight='600' fontStyle='italic' className={fonts.ebGaramond.className}>
           Home
         </Typography>
-        <Typography variant='h1' className={fonts.ebGaramond.className}>
-          Page
+        <Typography variant='h1' fontFamily='inherit'>
+          Home
         </Typography>
       </Box>
       <Box component='aside'>
