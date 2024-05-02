@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <ThemeWrapper>
           <header>
             <Typography variant='h1' textAlign='center'>
-              {process.env.NEXT_PUBLIC_APP_NAME}
+              {process.env.APP_NAME}
             </Typography>
             <Navigation />
           </header>
