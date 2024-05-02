@@ -4,6 +4,7 @@ import './globals.css';
 import React from 'react';
 import Navigation from '../components/Navigation';
 import ThemeWrapper from './ThemeWrapper';
+import { Typography } from '@mui/material';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
@@ -23,6 +24,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         <ThemeWrapper>
           <header>
+            <Typography variant='h1' textAlign='center'>
+              {process.env.NEXT_PUBLIC_APP_NAME}
+            </Typography>
             <Navigation />
           </header>
           <div>{children}</div>
