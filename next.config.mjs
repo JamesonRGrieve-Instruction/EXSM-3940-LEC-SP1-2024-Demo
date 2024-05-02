@@ -5,6 +5,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 const nextConfig = {
+  env: {
+    NEXT_PUBLIC_APP_NAME: process.env.APP_NAME,
+  },
   images: {
     remotePatterns: [
       {
