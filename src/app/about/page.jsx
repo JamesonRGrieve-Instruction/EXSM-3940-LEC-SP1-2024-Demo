@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import { Typography, Button, Box, TextField } from '@mui/material';
 import React from 'react';
 import AboutForm from './AboutForm';
 
@@ -20,6 +20,15 @@ export default function Home({ searchParams }) {
         </Typography>
       )}
       <AboutForm />
+      <Box component='form' action='/api/submission' method='POST' enctype='application/x-www-form-urlencoded'>
+        <TextField fullWidth name='name' defaultValue='' />
+        <Button type='submit' name='slug'>
+          Slug
+        </Button>
+        <Button type='submit' name='query'>
+          Query
+        </Button>
+      </Box>
     </>
   );
 }
