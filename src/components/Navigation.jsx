@@ -18,10 +18,7 @@ const Navigation = () => {
           <Link href='/'>Home</Link>
         </ListItem>
         <ListItem sx={{ justifyContent: 'center' }}>
-          <Link href='/about'>About</Link>
-        </ListItem>
-        <ListItem sx={{ justifyContent: 'center' }}>
-          <Link href='/about/me'>About Me</Link>
+          <Link href='/gallery'>Gallery</Link>
         </ListItem>
       </List>
     </Box>
