@@ -42,7 +42,7 @@ const Header = () => {
 
   let right = null;
 
-  if (status === 'loading') {
+  if (sessionInfo.status === 'loading') {
     left = (
       <div className='left'>
         <Link href='/'>
