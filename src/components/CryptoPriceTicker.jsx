@@ -10,7 +10,13 @@ export default function CryptoPriceTicker({ assetName }) {
   });
   return (
     <Typography variant='h1'>
-      1 {data?.symbol} = ${Number(data?.priceUsd)} USD
+      {data ? (
+        <>
+          1 {data.symbol} = ${Number(data.priceUsd).toFixed(2)} USD
+        </>
+      ) : (
+        <>Loading...</>
+      )}
     </Typography>
   );
 }
