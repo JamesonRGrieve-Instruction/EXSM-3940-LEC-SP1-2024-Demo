@@ -1,10 +1,10 @@
 import React from 'react';
-import SampleComponent from './Sample';
+import CryptoPriceTicker from './CryptoPriceTicker';
 
 // Default export with title
 export default {
   title: 'Sample/Sample',
-  component: SampleComponent,
+  component: CryptoPriceTicker,
   argTypes: {
     heading: { control: 'text' },
     bodyText: { control: 'text' },
@@ -13,7 +13,7 @@ export default {
 };
 
 // Named export for each story
-export const Sample = (args) => <SampleComponent {...args} />;
+export const Sample = (args) => <CryptoPriceTicker {...args} />;
 
 // Default values for props
 Sample.args = {
