@@ -8,8 +8,9 @@ export default function CryptoPriceTicker({ assetName }) {
     `assets/${assetName}`,
     async () => {
       const toReturn = (await axios.get(`https://api.coincap.io/v2/assets/${assetName}`)).data.data;
-      toReturn.priceUsd = Number(toReturn.priceUsd).toFixed(2);
       // One of the .data is to pull the axios response body out, the other is because this particular API nests the data in a "data" object.
+      toReturn.priceUsd = Number(toReturn.priceUsd).toFixed(2);
+      return toReturn;
     },
     {
       revalidateOnFocus: false, // When you click off the window and back.
