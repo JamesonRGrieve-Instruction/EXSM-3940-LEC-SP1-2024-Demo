@@ -11,7 +11,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header>
+          <form action={`/api/submission`} method='POST'>
+            <input name='argument' type='text' />
+            <input type='submit' name='slug' value='Render Slug' />
+            <input type='submit' name='override' value='Render Slug (Override)' />
+            <input type='submit' name='query' value='Render Query' />
+          </form>
+        </header>
+        <main>{children}</main>
+      </body>
     </html>
   );
 }
