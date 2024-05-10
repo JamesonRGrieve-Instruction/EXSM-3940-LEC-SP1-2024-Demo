@@ -1,7 +1,7 @@
 import React from 'react';
 export function generateMetadata({ searchParams }) {
   return {
-    title: `Query - ${searchParams.query}`,
+    title: `${process.env.APP_NAME} Query - ${searchParams.query}`,
   };
 }
 export default function RenderSlug({ searchParams }) {

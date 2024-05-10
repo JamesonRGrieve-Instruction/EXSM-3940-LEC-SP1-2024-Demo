@@ -1,7 +1,7 @@
 import React from 'react';
 export function generateMetadata({ params }) {
   return {
-    title: `Slug - ${params.slug}`,
+    title: `${process.env.APP_NAME} Slug - ${params.slug}`,
   };
 }
 export default function RenderSlug({ params }) {

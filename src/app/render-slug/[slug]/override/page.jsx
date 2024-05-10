@@ -2,7 +2,7 @@ import { redirect } from 'next/navigation';
 import React from 'react';
 export function generateMetadata({ params }) {
   return {
-    title: `Override - ${params.slug}`,
+    title: `${process.env.APP_NAME} Override - ${params.slug}`,
   };
 }
 export default function RenderSlug({ params }) {
