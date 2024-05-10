@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
           </form>
         </header>
         <main>{children}</main>
+        <footer>&copy; {process.env.APP_NAME}</footer>
       </body>
     </html>
   );
